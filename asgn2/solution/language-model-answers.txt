@@ -1,0 +1,88 @@
+Solutions to questions in part 3:
+
+1. 
+------------Positive unigrams------------
+food                 124/6554
+'s                    88/6554
+great                 83/6554
+place                 61/6554
+restaurant            55/6554
+service               54/6554
+good                  53/6554
+best                  43/6554
+excellent             38/6554
+n't                   37/6554
+
+------------Negative unigrams------------
+food                 149/9381
+restaurant            96/9381
+us                    95/9381
+service               89/9381
+n't                   88/9381
+'s                    82/9381
+one                   72/9381
+place                 68/9381
+table                 60/9381
+would                 57/9381
+
+------------Positive bigrams------------
+great               food                  13/6553
+food                excellent             12/6553
+great               place                  9/6553
+food                service                8/6553
+food                great                  8/6553
+highly              recommend              8/6553
+wine                list                   6/6553
+food                wonderful              6/6553
+food                good                   6/6553
+recommend           place                  6/6553
+
+------------Negative bigrams------------
+dining              experience            12/9380
+go                  back                  10/9380
+number              one                    8/9380
+coral               grill                  8/9380
+prime               rib                    8/9380
+food                cold                   7/9380
+n't                 know                   6/9380
+n't                 get                    6/9380
+service             food                   6/9380
+looked              like                   6/9380
+
+
+2.
+------------Positive collocations------------
+chez capo; highly recommend; pancake house; san francisco; mashed
+potatoes; wine list; millbrae pancake; rosa negra; several times;
+worth trip; big city; food excellent; sure try; head chef; something
+everyone; ala carte; eastern market; outdoor patio; ravioli browned;
+great food
+
+------------Negative collocations------------
+prime rib; coral grill; dining experience; fried rice; number one;
+crab legs; taco bell; tourist trap; local boys; needless say; looked
+like; 227 bistro; speak manager; health department; sunset restaurant;
+wait staff; medium rare; pattio area; food cold; come back
+
+
+3. The first sentence is "An excellent restaurant." After normalization, the sentence becomes: "excellent restaurant".
+From a positive review,  
+P(excellent AND restaurant) = P(excellent) * P(restaurant | excellent) 
+                            = (38/6554) * (2/38) = 2/6554 = 0.0003
+From a negative review,  
+P(excellent AND restaurant) = P(excellent) * P(restaurant | excellent) 
+                            = (10/9381) * (0/10) = 0
+
+
+4. P(an AND excellent AND restaurant) = P(an) * P(excellent | an) * P(restaurant | an AND excellent)
+
+
+5. Within the positive domain:
+P(mashed OR potatoes) = P(mashed) + P(potatoes) - P(mashed AND potatoes) 
+                      = P(mashed) + P(potatoes) - P(potatoes | mashed) * P(mashed) 
+                      = (7/6554) + (10/6554) - (5/7) * (7/6554) = 0.0018
+
+6. If you have any zero probabilities you will get a zero probability for the entire document (which is not good).
+
+
+

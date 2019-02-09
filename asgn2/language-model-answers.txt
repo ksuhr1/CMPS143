@@ -1,0 +1,127 @@
+1. What are the 15 most frequent words and bigrams for each category, and what are their frequencies? 
+Positive unigrams	(Total = 6554)
+   1 food 124
+   2 's 88
+   3 great 83
+   4 place 61
+   5 restaurant 55
+   6 service 54
+   7 good 53
+   8 best 43
+   9 excellent 38
+  10 one 37
+  11 n't 37
+  12 menu 35
+  13 time 34
+  14 wonderful 33
+  15 atmosphere 29
+
+Positive bigrams (Total = 6553)
+   1 great food 13
+   2 food excellent 12
+   3 great place 9
+   4 highly recommend 8
+   5 food great 8
+   6 food service 8
+   7 wine list 6
+   8 recommend place 6
+   9 food good 6
+  10 food wonderful 6
+  11 pancake house 5
+  12 chez capo 5
+  13 mashed potatoes 5
+  14 several times 5
+  15 big city 5
+
+Negative unigrams (Total = 9381)
+   1 food 149
+   2 restaurant 96
+   3 us 95
+   4 service 89
+   5 n't 88
+   6 's 82
+   7 one 72
+   8 place 68
+   9 table 60
+  10 would 57
+  11 good 53
+  12 back 51
+  13 go 49
+  14 never 45
+  15 experience 43
+
+Negative bigrams (Total = 9380)
+   1 dining experience 12
+   2 go back 10
+   3 coral grill 8
+   4 number one 8
+   5 prime rib 8
+   6 food cold 7
+   7 wait staff 6
+   8 come back 6
+   9 much better 6
+  10 20 minutes 6
+  11 fried rice 6
+  12 told us 6
+  13 looked like 6
+  14 n't get 6
+  15 n't even 6
+
+2. What are the collocations that were found for each category? 
+Positive Collocations
+chez capo; highly recommend; pancake house; san francisco; mashed
+potatoes; wine list; millbrae pancake; rosa negra; several times;
+worth trip; big city; food excellent; sure try; head chef; something
+everyone; ala carte; eastern market; outdoor patio; ravioli browned;
+great food
+
+Negative Collocations
+prime rib; coral grill; dining experience; fried rice; number one;
+crab legs; 227 bistro; taco bell; tourist trap; local boys; needless
+say; looked like; speak manager; health department; sunset restaurant;
+wait staff; medium rare; pattio area; food cold; come back
+
+3. Consider the normalized version of the first sentence of the training data. Given the frequency distributions you created during steps 2 and 3, calculate by hand the probability of that sentence, using a bigram model. Show your work. 
+
+First sentence: An excellent restaurant.
+Normalized sentence: [‘excellent’, ‘restaurant’]
+
+Positive Review
+P(A AND B) = P(A | B) * P(B)
+A = restaurant, B = excellent
+P(excellent AND restaurant = P(restaurant | excellent)* P(excellent)
+P(A AND B) =  (2/38) * (38/ 6554) = 1/3277 = 0.0003
+
+Negative Review
+P(A AND B) = P(A | B) * P(B)
+A = restaurant, B = excellent
+P(excellent AND restaurant = P(restaurant | excellent)* P(excellent)
+P(A AND B) =  (0/10) * (10/ 9380) = 0
+
+4. Consider again the first sentence of the training data, but without stopwords removed. What is the probability of this sentence using a trigram model. You do not need to calculate the number. Just write out the equation with the probabilities you would need to calculate it. What order of Markov Assumption is this model using? What would be order of the Markov assumption for a 4-gram model?
+
+First sentence: [‘an’, ‘excellent’, ‘restaurant’ ]
+3rd order Markov Assumption
+P(A AND B AND C) = P(A) * P(B | A) * P(C | A AND B)
+P( an AND excellent AND restaurant) = P(an) * P(excellent | an) * P(restaurant | an AND excellent)
+
+4-gram model will have a 4th order Markov Assumption
+P(A AND B AND C AND D) = P(A) * P(B | A) * P(C | A AND B)* P(D | A AND B AND C)
+
+
+5. Calculate by hand P(mashed ∪ potatoes) within the positive domain. Show your work. 
+
+P(A  ∪  B) = P(A) + P(B) - P( A AND B)
+P(A  ∪  B) = P(A) + P(B) - P(A) * P(B | A)
+
+P(mashed  ∪ potatoes) = P(mashed) + P(potatoes) - P(mashed) * P(potatoes | mashed)
+			     = (7/6554) + (10/6554) - (7/6554) * (5/7) = 0.0018
+
+6. What happens if you encounter a word that is not in your frequency tables when calculating the probability of an unseen sentence (a sentence that is not in your training data)?
+
+Given a zero probability like in Q.3 for negative reviews, we encountered a word that is not in the frequency table,  so the probability for that sentence resulted in a zero probability for the entire thing.
+
+ 7. A higher order n-gram (4-gram, 5-gram and so on) model is a better language model than a bi-gram or tri-gram model. 
+Would you say this statement is correct? Please state your reasons.
+
+This is not correct because it is an insufficient model of language. One reason is that language has long-distance dependencies. The higher the order, the more complex it will be to calculate the problem. As the n-gram increases, the amount of times you will see that n-gram in the document will decreases which can cause overfitting.

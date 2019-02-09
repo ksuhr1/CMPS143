@@ -1,0 +1,16 @@
+The accuracy of dev_examples.tsv is: 0.7142857142857143
+Confusion Matrix:
+         |   n   p |
+         |   e   o |
+         |   g   s |
+         |   a   i |
+         |   t   t |
+         |   i   i |
+         |   v   v |
+         |   e   e |
+---------+---------+
+negative |<131>  9 |
+positive |  71 <69>|
+---------+---------+
+(row = reference; col = test)
+

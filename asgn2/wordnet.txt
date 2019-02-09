@@ -1,0 +1,76 @@
+1. Synsets and Lemmas
+Word: fish
+
+Synsets:
+Synset('fish.n.01')
+Synset('fish.n.02')
+Synset('pisces.n.02')
+Synset('pisces.n.01')
+Synset('fish.v.01')
+Synset('fish.v.02')
+
+First synset: Synset('fish.n.01')
+
+Lemma names: 
+fish
+
+Last lemmas: Lemma('fish.n.01.fish')
+
+Synset of Last lemmas: Synset('fish.n.01')
+
+Synset('fish.n.01'): lemma_name['fish']
+Synset('fish.n.02'): lemma_name['fish']
+Synset('pisces.n.02'): lemma_name['Pisces', 'Fish']
+Synset('pisces.n.01'): lemma_name['Pisces', 'Pisces_the_Fishes', 'Fish']
+Synset('fish.v.01'): lemma_name['fish', 'angle']
+Synset('fish.v.02'): lemma_name['fish']
+
+Lemmas of fish:
+Lemma('fish.n.01.fish')
+Lemma('fish.n.02.fish')
+Lemma('pisces.n.02.Fish')
+Lemma('pisces.n.01.Fish')
+Lemma('fish.v.01.fish')
+Lemma('fish.v.02.fish')
+
+
+2. Definitions and Examples
+Synset: Synset('fish.n.01')
+Definition: any of various mostly cold-blooded aquatic vertebrates usually having scales and breathing through gills
+
+Example: ['the shark is a large fish', 'in the living room there was a tank of colorful fish']
+
+Synsets of first lemma fish: 
+Synset('fish.n.01') : definition ( any of various mostly cold-blooded aquatic vertebrates usually having scales and breathing through gills)
+Synset('fish.n.02') : definition ( the flesh of fish used as food)
+Synset('pisces.n.02') : definition ( (astrology) a person who is born while the sun is in Pisces)
+Synset('pisces.n.01') : definition ( the twelfth sign of the zodiac; the sun is in this sign from about February 19 to March 20)
+Synset('fish.v.01') : definition ( seek indirectly)
+Synset('fish.v.02') : definition ( catch or try to catch fish or shellfish)
+
+
+3. Lexical Relations
+Synset: Synset('fish.n.01')
+
+Hypernyms: [Synset('aquatic_vertebrate.n.01')]
+
+Hyponyms: [Synset('bony_fish.n.01'), Synset('bottom-feeder.n.02'), Synset('bottom_lurkers.n.01'), Synset('cartilaginous_fish.n.01'), Synset('climbing_perch.n.01'), Synset('fingerling.n.01'), Synset('food_fish.n.01'), Synset('game_fish.n.01'), Synset('mouthbreeder.n.01'), Synset('northern_snakehead.n.01'), Synset('rough_fish.n.01'), Synset('spawner.n.01'), Synset('young_fish.n.01')]
+
+Root hypernyms: [Synset('entity.n.01')]
+
+Hypernym path length of Synset('fish.n.01') = 1 
+
+Path[0]:
+entity.n.01
+physical_entity.n.01
+object.n.01
+whole.n.02
+living_thing.n.01
+organism.n.01
+animal.n.01
+chordate.n.01
+vertebrate.n.01
+aquatic_vertebrate.n.01
+fish.n.01
+
+

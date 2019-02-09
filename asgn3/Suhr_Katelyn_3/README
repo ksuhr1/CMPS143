@@ -1,0 +1,11 @@
+Notes:
+
+To run the file: python3 restaurant-competition-P1.py -e review_file -o predictions_file
+
+The default: python3 restaurant-competition-P1.py 
+
+This default takes in dev_examples.tsv as the eval_file and outputsthe predictions to restaurant-compeition-model-P1-predictions.txt
+
+The feature vector files will be generated everytime the code is run. Hopefully, it overrides the old file everytime it's run.
+
+Binary files are created for the classifier once you run the program. My bad about this, I didn't have time to figure out how to fix this or if that will be an issue.

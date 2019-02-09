@@ -1,0 +1,63 @@
+word_features
+The accuracy of dev_examples.tsv is: 0.8571428571428571
+Confusion Matrix:
+         |   n   p |
+         |   e   o |
+         |   g   s |
+         |   a   i |
+         |   t   t |
+         |   i   i |
+         |   v   v |
+         |   e   e |
+---------+---------+
+negative |<132>  8 |
+positive |  32<108>|
+---------+---------+
+(row = reference; col = test)
+
+word_pos_features
+The accuracy of dev_examples.tsv is: 0.7357142857142858
+Confusion Matrix:
+         |   n   p |
+         |   e   o |
+         |   g   s |
+         |   a   i |
+         |   t   t |
+         |   i   i |
+         |   v   v |
+         |   e   e |
+---------+---------+
+negative |<132>  8 |
+positive |  66 <74>|
+---------+---------+
+(row = reference; col = test)
+
+word_pos_liwc_features
+The accuracy of dev_examples.tsv is: 0.7142857142857143
+Confusion Matrix:
+         |   n   p |
+         |   e   o |
+         |   g   s |
+         |   a   i |
+         |   t   t |
+         |   i   i |
+         |   v   v |
+         |   e   e |
+---------+---------+
+negative |<131>  9 |
+positive |  71 <69>|
+---------+---------+
+(row = reference; col = test)
+
+Accuracies for the different feature sets:
+
+word_features: 85.7%
+
+word_pos_features: 73.6%
+
+word_pos_liwc_features: 71.4%
+
+The feature set that resulted in the best model and classifier was word_features.It was 12.1% better than word_pos_features and 14.3 % better than word_pos_liwc_features.
+
+I did not have time to try different combinations of feature due to unfortunate circumstances like rm * and very tricky python errors,though I would of tried to remove more stop words from the vocabulary manually by looking at the corpus, as well as removing any oher punctuations. I could have tried a different library for this and also for the pos tagger. I would have also liked to try a different binning strategy for the LIWC words. This assignment was challenging but I loved it! Really helped me understand classification.
+

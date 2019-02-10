@@ -1,6 +1,6 @@
 
 import re, nltk, pickle, argparse
-import os
+import os, sys
 import data_helper
 from features import get_features_category_tuples, get_features_from_texts
 
@@ -25,6 +25,7 @@ FEATURES_DIR = "features/"
 
 
 def write_features_category(features_category_tuples, output_file_name):
+    print("write_features_category")
     output_file = open("{}-features.txt".format(output_file_name), "w", encoding="utf-8")
     for (features, category) in features_category_tuples:
         output_file.write("{0:<10s}\t{1}\n".format(category, features))
@@ -32,6 +33,7 @@ def write_features_category(features_category_tuples, output_file_name):
 
 
 def get_classifier(classifier_fname):
+    print("get classifier")
     classifier_file = open(classifier_fname, 'rb')
     classifier = pickle.load(classifier_file)
     classifier_file.close()
@@ -39,6 +41,7 @@ def get_classifier(classifier_fname):
 
 
 def save_classifier(classifier, classifier_fname):
+    print("save classifier")
     classifier_file = open(classifier_fname, 'wb')
     pickle.dump(classifier, classifier_file)
     classifier_file.close()
@@ -49,8 +52,11 @@ def save_classifier(classifier, classifier_fname):
 
 
 def evaluate(classifier, features_category_tuples, reference_text, data_set_name=None):
-
+    print("evaluating")
     # test on the data
+    print("feature_category_tuples")
+    print(len(features_category_tuples))
+
     accuracy = nltk.classify.accuracy(classifier, features_category_tuples)
 
 
@@ -110,6 +116,9 @@ def build_features(data_file, feat_name, save_feats=None):
 def train_model(datafile, feature_set, split_name, save_model=None, save_feats=None, binning=False):
 
     features_data, texts = build_features(datafile, feature_set)
+    print("length of features")
+    print(len(features_data))
+
     classifier = nltk.classify.NaiveBayesClassifier.train(features_data)
 
     if save_model is not None:
@@ -117,7 +126,7 @@ def train_model(datafile, feature_set, split_name, save_model=None, save_feats=N
     return classifier
 
 
-def train_eval(train_file, eval_file, feature_set):
+def train_eval(train_file, eval_file, feature_set, results=False):
 
     # train the model
     split_name = "train"
@@ -128,12 +137,22 @@ def train_eval(train_file, eval_file, feature_set):
     if model is None:
         model = get_classifier(classifier_fname)
 
+    if eval_file == "dev_examples.tsv":
+        eval_name="dev-"
+    elif eval_file == "test_examples.tsv":
+        eval_name="test-"
+    else:
+        eval_name="unknown-"
 
     features_data, texts = build_features(eval_file, feature_set)
-    accuracy, cm = evaluate(model, features_data, texts, data_set_name="eval-{}".format(feature_set))
+    accuracy, cm = evaluate(model, features_data, texts, data_set_name=eval_name+"eval-{}".format(feature_set))
+    
+    results_file = open(results,'a')
+    sys.stdout = results_file
     print("\nThe accuracy of {} is: {}".format(eval_file, accuracy))
     print("Confusion Matrix:")
     print(str(cm))
+    sys.stdout = sys.__stdout__
 
     return accuracy
 
@@ -155,11 +174,12 @@ def predict_main(review_file, pred_file):
         print("  * training the model with {}".format(feat_set))
         model = train_model(train_file, feat_set, split_name)
         
-        acc = train_eval(train_file, review_file, feat_set)
+        acc = train_eval(train_file, review_file, feat_set, results=pred_file)
 
         results.append({
             "features": feat_set,
             "accuracy": acc,
+            "review_file": review_file
         })
 
     import pandas as pd

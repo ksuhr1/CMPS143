@@ -1,5 +1,5 @@
-accuracy,features
-0.8308457711442786,word_features
-0.7860696517412935,word_pos_features
-0.7736318407960199,word_pos_liwc_features
-0.6069651741293532,only_liwc
+accuracy,features,review_file
+0.8308457711442786,word_features,test_examples.tsv
+0.7860696517412935,word_pos_features,test_examples.tsv
+0.7736318407960199,word_pos_liwc_features,test_examples.tsv
+0.6069651741293532,only_liwc,test_examples.tsv

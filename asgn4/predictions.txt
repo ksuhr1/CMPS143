@@ -1,0 +1,136 @@
+Feature_set:word_features
+The accuracy of dev_examples.tsv is: 0.8642857142857143
+Confusion Matrix:
+         |   n   p |
+         |   e   o |
+         |   g   s |
+         |   a   i |
+         |   t   t |
+         |   i   i |
+         |   v   v |
+         |   e   e |
+---------+---------+
+negative |<132>  8 |
+positive |  30<110>|
+---------+---------+
+(row = reference; col = test)
+
+Feature_set:word_pos_features
+The accuracy of dev_examples.tsv is: 0.7571428571428571
+Confusion Matrix:
+         |   n   p |
+         |   e   o |
+         |   g   s |
+         |   a   i |
+         |   t   t |
+         |   i   i |
+         |   v   v |
+         |   e   e |
+---------+---------+
+negative |<131>  9 |
+positive |  59 <81>|
+---------+---------+
+(row = reference; col = test)
+
+Feature_set:word_pos_liwc_features
+The accuracy of dev_examples.tsv is: 0.7678571428571429
+Confusion Matrix:
+         |   n   p |
+         |   e   o |
+         |   g   s |
+         |   a   i |
+         |   t   t |
+         |   i   i |
+         |   v   v |
+         |   e   e |
+---------+---------+
+negative |<121> 19 |
+positive |  46 <94>|
+---------+---------+
+(row = reference; col = test)
+
+Feature_set:only_liwc
+The accuracy of dev_examples.tsv is: 0.6428571428571429
+Confusion Matrix:
+         |   n   p |
+         |   e   o |
+         |   g   s |
+         |   a   i |
+         |   t   t |
+         |   i   i |
+         |   v   v |
+         |   e   e |
+---------+---------+
+negative | <64> 76 |
+positive |  24<116>|
+---------+---------+
+(row = reference; col = test)
+
+Feature_set:word_features
+The accuracy of test_examples.tsv is: 0.8308457711442786
+Confusion Matrix:
+         |   n   p |
+         |   e   o |
+         |   g   s |
+         |   a   i |
+         |   t   t |
+         |   i   i |
+         |   v   v |
+         |   e   e |
+---------+---------+
+negative |<190> 11 |
+positive |  57<144>|
+---------+---------+
+(row = reference; col = test)
+
+Feature_set:word_pos_features
+The accuracy of test_examples.tsv is: 0.7860696517412935
+Confusion Matrix:
+         |   n   p |
+         |   e   o |
+         |   g   s |
+         |   a   i |
+         |   t   t |
+         |   i   i |
+         |   v   v |
+         |   e   e |
+---------+---------+
+negative |<194>  7 |
+positive |  79<122>|
+---------+---------+
+(row = reference; col = test)
+
+Feature_set:word_pos_liwc_features
+The accuracy of test_examples.tsv is: 0.7736318407960199
+Confusion Matrix:
+         |   n   p |
+         |   e   o |
+         |   g   s |
+         |   a   i |
+         |   t   t |
+         |   i   i |
+         |   v   v |
+         |   e   e |
+---------+---------+
+negative |<175> 26 |
+positive |  65<136>|
+---------+---------+
+(row = reference; col = test)
+
+Feature_set:only_liwc
+The accuracy of test_examples.tsv is: 0.6069651741293532
+Confusion Matrix:
+         |   n   p |
+         |   e   o |
+         |   g   s |
+         |   a   i |
+         |   t   t |
+         |   i   i |
+         |   v   v |
+         |   e   e |
+---------+---------+
+negative | <89>112 |
+positive |  46<155>|
+---------+---------+
+(row = reference; col = test)
+

@@ -44,7 +44,7 @@ Confusion Matrix:
          |   v   v |
          |   e   e |
 ---------+---------+
-negative |<131>  9 |
+Negative |<131>  9 |
 positive |  71 <69>|
 ---------+---------+
 (row = reference; col = test)

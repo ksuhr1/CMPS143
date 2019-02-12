@@ -100,13 +100,11 @@ def get_ngram_features(tokens):
     feature_vectors = {}
 
     ###     YOUR CODE GOES HERE
-    """
     uni_fdist = nltk.FreqDist(tokens)
     
     for token, freq in uni_fdist.items():
         #feature_vectors["UNI_{0}".format(token)] = bin(freq)
         feature_vectors["UNI_{0}".format(token)] = freq
-    """
     bi_fdist = nltk.FreqDist(nltk.bigrams(tokens))
 
 

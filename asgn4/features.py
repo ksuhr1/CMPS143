@@ -86,8 +86,8 @@ def bin(count):
     :return:
     """
     # Just a wild guess on the cutoff
-    return count if count < 2 else 3
-
+#    return count if count < 2 else 3
+    return count if count < 4 else 5
 
 def get_ngram_features(tokens):
     """
@@ -100,12 +100,16 @@ def get_ngram_features(tokens):
     feature_vectors = {}
 
     ###     YOUR CODE GOES HERE
-
+    """
     uni_fdist = nltk.FreqDist(tokens)
+    
     for token, freq in uni_fdist.items():
         #feature_vectors["UNI_{0}".format(token)] = bin(freq)
         feature_vectors["UNI_{0}".format(token)] = freq
+    """
     bi_fdist = nltk.FreqDist(nltk.bigrams(tokens))
+
+
     for (b1, b2), freq in bi_fdist.items():
         feature_vectors["BIGRAM_{0}_{1}".format(b1, b2)] = freq
         #feature_vectors["BIGRAM_{0}_{1}".format(b1, b2)] = bin(freq)
@@ -134,7 +138,7 @@ def get_pos_features(tags):
     bi_fdist = nltk.FreqDist(nltk.bigrams(tags))
     for (b1, b2), freq in bi_fdist.items():
         feature_vectors["BIGPOS_{0}_{1}".format(b1, b2)] = freq
-        #feature_vectors["BIGPOS_{0}_{1}".format(b1, b2)] = bin(freq)
+ #       feature_vectors["BIGPOS_{0}_{1}".format(b1, b2)] = bin(freq)
 
     return feature_vectors
 
@@ -175,12 +179,12 @@ def get_liwc_features(words):
     liwc_categories = word_category_counter.Dictionary._liwc_categories
     for long_name, _, _, _, _ in liwc_categories:
         val = int(liwc_scores[long_name])
-       # feature_vectors["LIWC:{}".format(long_name.replace(" ", "-"))] = bin_liwc(val)
+        #feature_vectors["LIWC:{}".format(long_name.replace(" ", "-"))] = bin_liwc(val)
         feature_vectors["LIWC:{}".format(long_name.replace(" ", "-"))] = val
     return feature_vectors
 
 
-FEATURE_SETS = {"word_pos_features", "word_features", "word_pos_liwc_features", "only_liwc"}
+FEATURE_SETS = {"word_pos_features", "word_features", "word_pos_liwc_features", "only_liwc", "bigram_pos_features"}
 
 #FEATURE_SETS = {"word_pos_features", "word_features", "word_pos_liwc_features", "only_liwc",
 #                "word_embedding"}
@@ -219,7 +223,9 @@ def get_features_category_tuples(category_text_dict, feature_set):
                 feature_vectors.update(get_liwc_features(words))
             elif feature_set == "only_liwc":
                 feature_vectors.update(get_liwc_features(words))
-
+            elif feature_set == "bigram_pos_features":
+                feature_vectors.update(get_ngram_features(words))
+                feature_vectors.update(get_pos_features(tags))
 
             features_category_tuples.append((feature_vectors, category))
             texts.append(text)
@@ -251,6 +257,10 @@ def get_features_from_texts(all_texts, feature_set):
             feature_vectors.update(get_liwc_features(words))
         elif feature_set == "only_liwc":
             feature_vectors.update(get_liwc_features(words))
+        elif feature_set == "bigram_pos_features":
+            feature_vectors.update(get_ngram_features(words))
+            feature_vectors.update(get_pos_features(tags))
+
 
         features_category_tuples.append(feature_vectors)
 
@@ -294,4 +304,4 @@ def features_stub():
 if __name__ == "__main__":
     print("hello world!")
     features_stub()
-
+"bigram_pos_features"

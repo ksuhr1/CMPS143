@@ -136,3 +136,75 @@ positive |  46<155>|
 ---------+---------+
 (row = reference; col = test)
 
+-------Scikit Learn Results--------------------
+
+nb_sk
+The accuracy of dev_examples.tsv is: 0.7464285714285714
+Confusion Matrix:
+         |   n   p |
+         |   e   o |
+         |   g   s |
+         |   a   i |
+         |   t   t |
+         |   i   i |
+         |   v   v |
+         |   e   e |
+---------+---------+
+negative | <78> 62 |
+positive |   9<131>|
+---------+---------+
+(row = reference; col = test)
+
+dt_sk
+The accuracy of dev_examples.tsv is: 0.7571428571428571
+Confusion Matrix:
+         |   n   p |
+         |   e   o |
+         |   g   s |
+         |   a   i |
+         |   t   t |
+         |   i   i |
+         |   v   v |
+         |   e   e |
+---------+---------+
+negative |<108> 32 |
+positive |  36<104>|
+---------+---------+
+(row = reference; col = test)
+
+nb_sk
+The accuracy of test_examples.tsv is: 0.736318407960199
+Confusion Matrix:
+         |   n   p |
+         |   e   o |
+         |   g   s |
+         |   a   i |
+         |   t   t |
+         |   i   i |
+         |   v   v |
+         |   e   e |
+---------+---------+
+negative |<109> 92 |
+positive |  14<187>|
+---------+---------+
+(row = reference; col = test)
+
+dt_sk
+The accuracy of test_examples.tsv is: 0.7064676616915423
+Confusion Matrix:
+         |   n   p |
+         |   e   o |
+         |   g   s |
+         |   a   i |
+         |   t   t |
+         |   i   i |
+         |   v   v |
+         |   e   e |
+---------+---------+
+negative |<131> 70 |
+positive |  48<153>|
+---------+---------+
+(row = reference; col = test)
+
+
+
